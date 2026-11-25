@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Debug Code Faster with AI | ToolSub24</title>
+<meta name="description" content="Learn a practical AI debugging workflow with clear prompts, error context, expected output, test cases, Marathi and Hinglish examples, review tips and a checklist.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://toolsub24.in/blog/how-to-debug-code-faster-with-ai.html">
+<meta property="og:type" content="article"><meta property="og:url" content="https://toolsub24.in/blog/how-to-debug-code-faster-with-ai.html"><meta property="og:title" content="How to Debug Code Faster with AI"><meta property="og:description" content="A practical prompt workflow for debugging code with AI without blindly accepting generated fixes."><meta property="og:site_name" content="AI Sadhan | ToolSub24"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="How to Debug Code Faster with AI"><meta name="twitter:description" content="Use better context, prompts and tests when asking AI to explain or fix code.">
+<link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/cube.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Debug Code Faster with AI","description":"A practical prompt workflow for debugging code with AI without blindly accepting generated fixes.","author":{"@type":"Organization","name":"AI Sadhan | ToolSub24"},"publisher":{"@type":"Organization","name":"AI Sadhan | ToolSub24"},"mainEntityOfPage":"https://toolsub24.in/blog/how-to-debug-code-faster-with-ai.html","datePublished":"2026-11-25","dateModified":"2026-11-25","inLanguage":"en"}</script>
+<style>
+:root{--bg:#fffaf7;--ink:#172033;--muted:#64748b;--rose:#d84378;--deep:#982953;--line:#f0d9e2;--soft:#fff0f5;--yellow:#fff8df}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#253047;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.7}header{background:#fff;border-bottom:1px solid var(--line);padding:15px max(18px,calc((100% - 900px)/2));display:flex;justify-content:space-between;align-items:center}.logo{color:var(--deep);font-weight:900;text-decoration:none}.logo span{color:#6b7280}main{max-width:900px;margin:auto;padding:24px 16px}.crumb{font-size:12px;margin-bottom:18px}.crumb a{color:var(--rose)}article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 8px 20px #9b28580c}h1{font-size:34px;line-height:1.15;color:var(--ink);margin:0 0 8px;letter-spacing:-1px}.date{color:var(--muted);font-size:12px;margin-bottom:22px}h2{font-size:22px;line-height:1.25;color:var(--ink);margin:30px 0 8px}h3{font-size:17px;color:var(--ink);margin:22px 0 5px}p,li{font-size:15px}a{color:var(--rose)}.prompt{background:#f5f3ff;border:1px solid #dcd2f2;border-radius:10px;padding:14px 16px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.55;color:var(--ink);overflow-wrap:anywhere}.tip{background:var(--yellow);border-left:4px solid #e4aa20;padding:12px 15px;margin:18px 0}.checklist{background:#eefbf2;border:1px solid #bde8c9;border-radius:10px;padding:14px 18px}.sources{font-size:13px;color:var(--muted)}.cta{display:inline-block;background:var(--rose);color:#fff;text-decoration:none;border-radius:8px;padding:9px 13px;font-weight:800;margin-top:8px}footer{text-align:center;background:#fff;border-top:1px solid var(--line);padding:18px;color:var(--muted);font-size:12px}@media(max-width:520px){article{padding:17px}h1{font-size:27px}p,li{font-size:14px}.prompt{font-size:12px}}
+</style></head>
+<body><header><a class="logo" href="https://toolsub24.in/">AI Sadhan <span>| ToolSub24</span></a><a class="logo" href="https://toolsub24.in/blog/">Blog</a></header><main><div class="crumb"><a href="https://toolsub24.in/">Home</a> / <a href="https://toolsub24.in/blog/">AI Guides</a> / AI Debugging</div><article>
+<h1>How to Debug Code Faster with AI</h1><div class="date">Published: 25 November 2026 · Coding and Productivity Guide</div>
+<p>AI coding assistants can explain error messages, suggest fixes, write tests and help inspect unexpected output. They are most useful when you give them a bounded task and enough context to reproduce the problem. They are not a replacement for running tests or understanding the change you are about to commit.</p>
+<p>GitHub’s official guidance recommends specific prompts, relevant context, examples and smaller tasks. Its debugging tutorial also separates errors that stop a program from incorrect output that looks valid but is wrong. This article turns those ideas into a repeatable workflow.</p>
+
+<h2>Step 1: Describe the bug precisely</h2>
+<p>Start with what you expected, what actually happened and how to reproduce it. Include the language, framework, command and exact error message. Avoid sending only “fix my code”; the assistant cannot reliably infer which behavior matters.</p>
+<div class="prompt">Language: Python 3.12
+File: invoice_total.py
+Command: python invoice_total.py
+Expected: total should be 1250.00 for two items
+Actual: TypeError: unsupported operand type(s) for +: 'int' and 'str'
+Task: Explain the likely cause first. Then suggest the smallest safe fix. Do not rewrite unrelated functions.</div>
+
+<h2>Step 2: Attach only relevant context</h2>
+<p>Share the smallest code block that includes the failing function, its inputs and the call that produces the error. Add the relevant file name and line number. For a repository task, point to the exact files or symbols instead of pasting an entire project.</p>
+<div class="tip"><strong>Privacy rule:</strong> Remove API keys, passwords, access tokens, private customer data and confidential business logic before pasting code into an AI tool. Replace them with placeholders such as <code>YOUR_API_KEY</code>.</div>
+
+<h2>Step 3: Ask for diagnosis before a fix</h2>
+<p>A useful debugging conversation has two stages. First ask the AI to explain the likely cause and show the evidence in the code. Then ask for a minimal change. This makes it easier to reject a fix that only hides the symptom.</p>
+<div class="prompt">Review the code below for the reported error.
+Return:
+1. The exact line that is likely failing
+2. Why the types or values are incompatible
+3. The smallest fix, with a short diff
+4. One edge case the fix must preserve
+Do not change the public function name or unrelated formatting.</n
+Error: [PASTE EXACT ERROR]
+Relevant code:
+[PASTE SMALL CODE BLOCK]</div>
+
+<h2>Step 4: Give expected output and test cases</h2>
+<p>Expected examples help the assistant understand the behavior you want. Ask for tests before or alongside the implementation. Include a normal case, a boundary case and an invalid-input case when they apply.</p>
+<div class="prompt">Write unit tests for calculate_discount(price, percent).
+Expected behavior:
+- calculate_discount(1000, 10) returns 900
+- calculate_discount(0, 10) returns 0
+- a negative price raises ValueError
+- a percentage below 0 or above 100 raises ValueError
+Use the project’s existing test framework. Do not invent external dependencies.</div>
+<p>After the tests are written, ask for the smallest implementation that passes them. Run the tests yourself and inspect failures rather than accepting a green-looking explanation.</p>
+
+<h2>Step 5: Break a complex debugging task into parts</h2>
+<p>Large requests are harder to verify. Split them into a sequence: reproduce the bug, identify the cause, write a regression test, apply a minimal fix, run the focused test, then review the diff. This also gives you useful checkpoints if the suggested change goes in the wrong direction.</p>
+<div class="prompt">First, do not edit the code. Read this error and tell me what additional context is needed to reproduce it.
+After I provide that context, propose one diagnostic test.
+Only after the test result is available, suggest a minimal fix.
+Finally, list the exact tests I should run to verify the fix.</div>
+
+<h2>Marathi and Hinglish prompts for developers</h2>
+<h3>मराठी debugging prompt</h3><div class="prompt">या JavaScript function मध्ये error का येतो ते आधी समजावून सांगा. Error message, failing line आणि input value वेगळे दाखवा. मग फक्त आवश्यक तेवढाच fix सुचवा. Function चे नाव आणि existing API बदलू नका. शेवटी या bug साठी एक regression test द्या. माझ्या code मध्ये नसलेली library किंवा feature गृहीत धरू नका.</div>
+<h3>Hinglish code-review prompt</h3><div class="prompt">Is Python function ka output expected result se different aa raha hai. Pehle likely cause explain karo, phir input-to-output trace dikhao. Minimal patch suggest karo, unrelated code rewrite mat karo, aur 3 test cases do: normal input, edge case aur invalid input. Secrets ya external dependencies assume mat karo.</div>
+
+<h2>Review the AI-generated fix</h2>
+<p>Read the change like you would review a colleague’s pull request. Check whether it actually addresses the cause, preserves existing behavior and handles invalid input. Run focused tests, linting or type checks where available. Then inspect the diff for unnecessary changes, insecure patterns, new dependencies and hard-coded secrets.</p>
+<p>GitHub’s documentation explicitly recommends understanding and reviewing generated code and using automated tests or tooling. If the result is unclear, ask the assistant to explain the patch line by line instead of blindly accepting it.</p>
+
+<h2>Final AI debugging checklist</h2><div class="checklist"><ul><li>I included the exact error or incorrect output.</li><li>I explained the expected behavior and reproduction command.</li><li>I shared only the relevant files, functions and inputs.</li><li>I removed secrets and private information.</li><li>I asked for diagnosis before requesting a rewrite.</li><li>I supplied examples or test cases.</li><li>I requested a minimal, scoped change.</li><li>I ran tests and reviewed the final diff myself.</li></ul></div>
+
+<h2>Frequently asked questions</h2><h3>Can AI fix every coding error?</h3><p>No. AI can suggest explanations and patches, but it may misunderstand the project, miss a security issue or propose code that fails in your environment. Reproduce the problem and verify every fix with tests.</p><h3>Should I paste the whole project into an AI assistant?</h3><p>Usually not. Start with the failing function, related types, error output and expected behavior. Add more context only when the assistant needs it. Never include credentials or private data.</p><h3>Is it better to ask for a rewrite or a minimal patch?</h3><p>A minimal patch is easier to review and less likely to change unrelated behavior. A larger refactor can be considered after the bug is fixed and covered by tests.</p><h3>Can beginners use AI for debugging?</h3><p>Yes, if they treat the assistant as a tutor and reviewer rather than an automatic answer machine. Ask why the bug occurs, compare the explanation with the code and run small tests to confirm it.</p>
+
+<p>For more coding and productivity tools, visit the <a href="https://toolsub24.in/">AI Sadhan ToolSub24 directory</a>. You can also use the homepage prompt optimizer and read the <a href="https://toolsub24.in/blog/">full AI guides collection</a>.</p><a class="cta" href="https://toolsub24.in/">Explore AI Tools</a>
+<h2>Sources checked</h2><p class="sources"><a href="https://docs.github.com/en/copilot/concepts/prompting-and-context/prompt-engineering">GitHub Copilot Prompt Engineering</a> · <a href="https://docs.github.com/en/copilot/get-started/best-practices">GitHub Copilot Best Practices</a> · <a href="https://docs.github.com/en/get-started/learning-to-code/learning-to-debug-with-github-copilot">Learning to Debug with GitHub Copilot</a> · <a href="https://code.visualstudio.com/docs/agents/best-practices">VS Code AI Best Practices</a></p>
+</article></main><footer>© 2026 AI Sadhan &amp; ToolSub24 · <a href="https://toolsub24.in/">AI Tools Directory</a></footer></body></html>
